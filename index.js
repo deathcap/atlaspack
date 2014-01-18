@@ -36,6 +36,7 @@ function Atlas(x, y, w, h) {
   this.filled = false;
   this.tilepad = false;
   this.tilepadAmount = 0.5;
+  this.tilepadInUV = true;
   this._cache = [];
   this._uvcache = Object.create(null);
 }
@@ -142,7 +143,7 @@ Atlas.prototype.uv = function(w, h) {
   }
   w = w || self.rect.w;
   h = h || self.rect.h;
-  var isPad = this.tilepad;
+  var isPad = this.tilepadInUV;
   (function loop(atlas) {
     if (atlas.left !== null) {
       loop(atlas.left);
