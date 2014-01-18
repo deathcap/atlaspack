@@ -35,6 +35,7 @@ function Atlas(x, y, w, h) {
   this.rect = new Rect(x, y, w, h);
   this.filled = false;
   this.tilepad = false;
+  this.tilepadAmount = 0.5;
   this._cache = [];
   this._uvcache = Object.create(null);
 }
@@ -198,7 +199,7 @@ Atlas.prototype._tilepad = function(rect) {
   var img = this.img;
   if (!img) return rect;
 
-  var p = img.width / 2;
+  var p = img.width * this.tilepadAmount;
 
   var canvas = document.createElement('canvas');
   canvas.name = img.name || img.src;
